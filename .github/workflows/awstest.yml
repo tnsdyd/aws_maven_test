@@ -35,8 +35,9 @@ jobs:
     - name: Run a multi-line script
       run: |
         mkdir ../build
-        cp -TR . ../build
+        cp *.war ../build
         tar -cvf deploy.tar ../build/
+        ls -al
     - uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.HOST }}
