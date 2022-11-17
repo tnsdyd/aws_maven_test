@@ -26,20 +26,17 @@ jobs:
       run: |
         mvn archetype:generate -DinteractiveMode=false  -DgroupId=test -DartifactId=test3 -DarchetypeArtifactId=maven-archetype-webapp
         cd test3
-        mvn install
-    - name: cp
-      run: |
-        cp test3/target/test3.war .
-        pwd 
-        ls -al
-        tar -cvf deploy.tar ./test3.war 
-        ls -al
-      
+        mvn install    
   scp:
     name: scp
     runs-on: ubuntu-latest
     needs: build
     steps:
+    - name: Run a multi-line script
+      run: |
+        mkdir ../build
+        cp -TR . ../build
+        tar -cvf deploy.tar ../build/
     - uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.HOST }}
