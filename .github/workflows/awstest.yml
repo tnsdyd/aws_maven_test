@@ -11,12 +11,10 @@ on:
         description: 'Test scenario tags'
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -33,3 +31,15 @@ jobs:
       with:
         name: test3
         path: /home/runner/work/trre/trre/test3/target/test3.war
+  ssh:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: ssh 
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: whoami
