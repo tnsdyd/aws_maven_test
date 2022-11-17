@@ -52,7 +52,7 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         source:  deploy.tar
-        target: /usr/local/bin/apache-tomcat-9.0.69/webapps
+        target: /home/ubuntu/
   deploy:
     name: deploy
     runs-on: ubuntu-latest
@@ -67,8 +67,8 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /usr/local/bin/apache-tomcat-9.0.69/webapps/ 
           tar -xvf deploy.tar -C .
-          mv build/test3.war /usr/local/bin/apache-tomcat-9.0.69/webapps/
+          cd /usr/local/bin/apache-tomcat-9.0.69/webapps/ 
+          mv /home/ubuntu/build/test3.war /usr/local/bin/apache-tomcat-9.0.69/webapps/
           ls -al /usr/local/bin/apache-tomcat-9.0.69/webapps/
-          # bash /usr/local/bin/apache-tomcat-9.0.69/bin/startup.sh
+          #bash /usr/local/bin/apache-tomcat-9.0.69/bin/startup.sh
