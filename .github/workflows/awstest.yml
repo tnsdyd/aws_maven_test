@@ -30,7 +30,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: test3
-        path: /home/runner/work/trre/trre/test3/target/test3.war
+        path: test3/target/test3.war
   scp:
     name: scp
     runs-on: ubuntu-latest
