@@ -67,6 +67,7 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         script: |
-          tar -xvf /usr/local/bin/apache-tomcat-9.0.69/webapps/deploy.tar .
+          cd /usr/local/bin/apache-tomcat-9.0.69/webapps/ 
+          tar -xvf deploy.tar .
           ls -al /usr/local/bin/apache-tomcat-9.0.69/webapps/
           # bash /usr/local/bin/apache-tomcat-9.0.69/bin/startup.sh
