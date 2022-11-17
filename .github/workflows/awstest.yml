@@ -33,7 +33,6 @@ jobs:
         name: test3
         path: test3/target/test3.war    
     - uses: actions/download-artifact@v3
-    - name: war-download
       with:
         name: test3
   scp:
