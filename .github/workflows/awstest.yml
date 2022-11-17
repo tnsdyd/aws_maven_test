@@ -30,8 +30,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: test3
-        path: /home/runner/work/trre/trre/test3/target/test3.war
-    - uses: actions/checkout@v3
+        path: test3/target/test3.war
   scp:
     name: scp
     runs-on: ubuntu-latest
@@ -43,7 +42,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        source:  test3.war
+        source:  test3
         target: /usr/local/bin/apache-tomcat-9.0.69/webapps
   deploy:
     name: deploy
