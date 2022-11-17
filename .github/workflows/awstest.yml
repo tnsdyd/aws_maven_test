@@ -27,14 +27,8 @@ jobs:
         mvn archetype:generate -DinteractiveMode=false  -DgroupId=test -DartifactId=test3 -DarchetypeArtifactId=maven-archetype-webapp
         cd test3
         mvn install
-    - uses: actions/upload-artifact@v3
-      with:
-        name: test3
-        path: test3/target/test3.war    
-    - uses: actions/download-artifact@v3
-      with:
-        name: test3
-        run : ls
+        cp /home/runner/work/99999/99999/test3/target/test3.war .
+        ls -al
   scp:
     name: scp
     runs-on: ubuntu-latest
