@@ -28,13 +28,13 @@ jobs:
         cd test3
         mvn install
     - uses: actions/upload-artifact@v3
-    - name: war-upload 
       with:
         name: test3
         path: test3/target/test3.war    
     - uses: actions/download-artifact@v3
       with:
         name: test3
+        run : ls
   scp:
     name: scp
     runs-on: ubuntu-latest
