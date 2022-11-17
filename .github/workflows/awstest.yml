@@ -36,8 +36,6 @@ jobs:
     - name: war-download
       with:
         name: test3
-    - name: war
-      run : ls -al
   scp:
     name: scp
     runs-on: ubuntu-latest
