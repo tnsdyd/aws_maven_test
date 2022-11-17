@@ -32,6 +32,8 @@ jobs:
         cp test3/target/test3.war .
         pwd 
         ls -al
+        tar -cvf deploy.tar ./test3.war 
+        ls -al
       
   scp:
     name: scp
@@ -44,7 +46,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        source:  test3.war
+        source:  deploy.tar
         target: /usr/local/bin/apache-tomcat-9.0.69/webapps
   deploy:
     name: deploy
@@ -59,5 +61,6 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         script: 
+          tar -xvf /usr/local/bin/apache-tomcat-9.0.69/webapps/deploy.tar .
           ls -al /usr/local/bin/apache-tomcat-9.0.69/webapps/
           bash /usr/local/bin/apache-tomcat-9.0.69/bin/startup.sh
