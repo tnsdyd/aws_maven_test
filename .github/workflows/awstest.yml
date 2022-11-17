@@ -57,7 +57,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        script: 
+        script: |
           tar -xvf /usr/local/bin/apache-tomcat-9.0.69/webapps/deploy.tar .
           ls -al /usr/local/bin/apache-tomcat-9.0.69/webapps/
           bash /usr/local/bin/apache-tomcat-9.0.69/bin/startup.sh
