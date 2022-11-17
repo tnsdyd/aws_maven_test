@@ -69,5 +69,6 @@ jobs:
         script: |
           cd /usr/local/bin/apache-tomcat-9.0.69/webapps/ 
           tar -xvf deploy.tar -C .
-          tree /usr/local/bin/apache-tomcat-9.0.69/webapps/
+          mv build/test3.war /usr/local/bin/apache-tomcat-9.0.69/webapps/
+          ls -al /usr/local/bin/apache-tomcat-9.0.69/webapps/
           # bash /usr/local/bin/apache-tomcat-9.0.69/bin/startup.sh
