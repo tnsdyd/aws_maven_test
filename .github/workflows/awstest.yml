@@ -70,4 +70,4 @@ jobs:
           cd build 
           mv test3.war /usr/local/bin/apache-tomcat-9.0.69/webapps/
           ls -al /usr/local/bin/apache-tomcat-9.0.69/webapps/
-          #bash /usr/local/bin/apache-tomcat-9.0.69/bin/startup.sh
+          bash /usr/local/bin/apache-tomcat-9.0.69/bin/startup.sh
